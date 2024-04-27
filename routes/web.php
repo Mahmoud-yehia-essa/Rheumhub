@@ -30,6 +30,7 @@ use App\Http\Controllers\PhysiotherapyController;
 use App\Http\Controllers\SurveysAnswerController;
 use App\Http\Controllers\SurveysResultController;
 use App\Http\Controllers\VolunteerUserController;
+use App\Http\Controllers\ApplicationFormController;
 use App\Http\Controllers\PhysiotherapyVideoController;
 
 /*
@@ -42,6 +43,11 @@ use App\Http\Controllers\PhysiotherapyVideoController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -356,6 +362,12 @@ Route::middleware(['auth','role:user'])->group(function(){
 
 });
 
+
+
+
+/// get  Search Form for users
+
+Route::get('/appplication/home',[ApplicationFormController::class,'viewApplication'])->name('view-application');
 
 
 
