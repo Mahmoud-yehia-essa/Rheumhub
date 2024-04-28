@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>APPLICATION</title>
     <link href="{{asset('adminbackend/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet')}}" />
     <link href="{{asset('adminbackend/assets/plugins/input-tags/css/tagsinput.css" rel="stylesheet')}}" />
     <link
@@ -41,6 +41,19 @@
 
 
 
+    <style>
+
+.bt-container
+{
+
+  text-align: center;
+  margin-top: 3rem;  
+}
+
+
+
+    </style>
+
     
 
 
@@ -50,36 +63,52 @@
       <div class="page-content">
         <div class="row">
           <div class="col-xl-9">
-            <h6 class="mb-0 text-uppercase">APPLICANT INFORMATION From Git</h6>
+            @if ($errors->any())
+        
+
+            @foreach ($errors->all() as $item)
+           
+
+           <div class="alert alert-danger" role="alert">
+            {{$item}}
+          </div>
+
+            @endforeach
+        
+            
+        @endif
+            <h6 class="mb-0 text-uppercase">APPLICATION INFORMATION</h6>
             <hr />
             <div class="card">
               <div class="card-body">
-                <form>
+                <form action="{{route('add-application')}}" method="POST" id="myForm">
+                  @csrf
                   <div class="mb-3">
                     <label class="form-label">Name:</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" name="name" value="{{old('name')}}" class="form-control" />
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Position:</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" name="position" value="{{old('position')}}" class="form-control" />
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Work Address:</label>
-                    <input type="text" class="form-control" placeholder="" />
+                    <input type="text" name="workAddress" value="{{old('work-address')}}" class="form-control" placeholder="" />
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Email:</label>
                     <input
                       type="email"
+                      name="email"
+                      value="{{old('email')}}"
                       class="form-control"
                       placeholder="example@gmail.com"
                     />
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Contact number:</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" value="{{old('number')}}" name="number" class="form-control" />
                   </div>
-                </form>
               </div>
             </div>
 
@@ -87,14 +116,13 @@
             <hr />
             <div class="card">
               <div class="card-body">
-                <form>
                   <div class="mb-3">
                     <label class="form-label">Title:</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" name="title" value="{{old('title')}}" class="form-control" />
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Project Leader(s):</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" name="leader"  value="{{old('leader')}}" class="form-control" />
                   </div>
 
                   <div class="row gy-1 mb-3">
@@ -106,6 +134,8 @@
                         type="text"
                         class="form-control"
                         value=""
+                        {{-- name="jsMembers[]" --}}
+                        
                       />
                     </div>
                     <div class="col-md-3 text-end d-grid">
@@ -118,6 +148,8 @@
                       </button>
                     </div>
                   </div>
+                 
+
 
                   <div class="form-row mt-3">
                     <div class="col-12">
@@ -134,6 +166,7 @@
                         type="text"
                         class="form-control"
                         value=""
+                        {{-- name="jsobjectives[]" --}}
                       />
                     </div>
                     <div class="col-md-3 text-end d-grid">
@@ -157,7 +190,7 @@
                     <textarea
                       class="form-control"
                       id="text"
-                      name="text"
+                      name="des"
                       maxlength="500"
                       placeholder="Type in your message"
                       rows="5"
@@ -167,7 +200,6 @@
                       id="count_message"
                     ></span>
                   </div>
-                </form>
               </div>
             </div>
 
@@ -180,7 +212,7 @@
                     class="d-flex align-items-center justify-content-between"
                   >
                     <h5 class="mb-0">Project organization</h5>
-                    <button class="btn btn-primary repeater-add-btn px-4">
+                    <button type="button" class="btn btn-primary repeater-add-btn px-4">
                       Add
                     </button>
                   </div>
@@ -193,13 +225,16 @@
                     <!-- Repeater Content -->
                     <div class="item-content">
                       <div class="mb-3">
-                        <label for="inputName3" class="form-label">Start</label>
+                        <label for="inputEmail2" class="form-label">Start</label>
                         <input
                           type="date"
                           class="form-control"
-                          id="inputName3"
-                          placeholder="Name"
-                          data-name="name"
+                          id="inputEmail2"
+                          data-skip-name="true"
+
+                          data-name="pstart[]"
+
+                          name="pstart[]"
                         />
                       </div>
                       <div class="mb-3">
@@ -208,16 +243,17 @@
                           type="date"
                           class="form-control"
                           id="inputEmail3"
-                          placeholder="Email"
                           data-skip-name="true"
-                          data-name="email"
+                          data-name="pend[]"
+                          name="pend[]"
+
                         />
                       </div>
                       <div class="mb-3">
-                        <label for="inputEmail3" class="form-label"
+                        <label for="inputEmail4" class="form-label"
                           >Description</label
                         >
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea class="form-control" rows="5" data-skip-name="true" name="pdes[]"></textarea>
                       </div>
                     </div>
                     <!-- Repeater Remove Btn -->
@@ -235,8 +271,7 @@
             <hr />
             <div class="card">
               <div class="card-body">
-                <form>
-                  <div class="row gy-1 mb-3">
+                <div class="row gy-1 mb-3">
                     <label class="form-label">Targeted Journal:</label>
 
                     <div class="col-md-9">
@@ -245,6 +280,7 @@
                         type="text"
                         class="form-control"
                         value=""
+                        {{-- name="jsjournal[]" --}}
                       />
                     </div>
                     <div class="col-md-3 text-end d-grid">
@@ -270,12 +306,13 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
+
+                        value="Full grant (full funding, registry data access, resource allocation including medical writer and statistician)"
+                        name="grant"
                         id="flexRadioDefault1"
                       />
                       <label class="form-check-label" for="flexRadioDefault1">
-                        Full grant (full funding, registry data access, resource
-                        allocation including medical writer and statistician)
+                        Full grant (full funding, registry data access, resource allocation including medical writer and statistician)
                       </label>
                     </div>
 
@@ -285,12 +322,13 @@
                           <input
                             class="form-check-input"
                             type="radio"
-                            name="flexRadioDefault"
-                            id="flexRadioSuccess"
+                            name="grant"
+                            value="Partial Grant"
+                            id="flexRadioDefault2"
                           />
                           <label
                             class="form-check-label"
-                            for="flexRadioSuccess"
+                            for="flexRadioDefault2"
                           >
                             Partial Grant
                           </label>
@@ -301,8 +339,10 @@
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              value=""
+                              value="Electronic Survey Creation"
                               id="flexCheckDefault"
+                              name="grant_checked[]"
+
                             />
                             <label
                               class="form-check-label"
@@ -316,12 +356,14 @@
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              value=""
-                              id="flexCheckChecked"
+                              value="Statistical analysis"
+                              id="flexCheckDefault2"
+                              name="grant_checked[]"
+
                             />
                             <label
                               class="form-check-label"
-                              for="flexCheckChecked"
+                              for="flexCheckDefault2"
                             >
                               Statistical analysis
                             </label>
@@ -331,12 +373,14 @@
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              value=""
-                              id="flexCheckChecked"
+                              value="Medical writer"
+                              id="flexCheckDefault3"
+                              name="grant_checked[]"
+
                             />
                             <label
                               class="form-check-label"
-                              for="flexCheckChecked"
+                              for="flexCheckDefault3"
                             >
                               Medical writer
                             </label>
@@ -346,12 +390,14 @@
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              value=""
-                              id="flexCheckChecked"
+                              value="Article process charges (APCs)"
+                              id="flexCheckDefault4"
+                              name="grant_checked[]"
+
                             />
                             <label
                               class="form-check-label"
-                              for="flexCheckChecked"
+                              for="flexCheckDefault4"
                             >
                               Article process charges (APCs)
                             </label>
@@ -361,12 +407,14 @@
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              value=""
-                              id="flexCheckChecked"
+                              value="Access to registry data only"
+                              id="flexCheckDefault5"
+                              name="grant_checked[]"
+
                             />
                             <label
                               class="form-check-label"
-                              for="flexCheckChecked"
+                              for="flexCheckDefault5"
                             >
                               Access to registry data only
                             </label>
@@ -376,22 +424,34 @@
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              value=""
-                              id="flexCheckChecked"
+                              value="Others"
+                              id="flexCheckDefault6"
+                              name="grant_checked[]"
+
                             />
                             <label
                               class="form-check-label"
-                              for="flexCheckChecked"
+                              for="flexCheckDefault6"
                             >
                               Others, Specify:
                             </label>
                           </div>
 
-                          <input type="text" class="form-control" />
+                          <input type="text" id="grant-other" name="grantOther" class="form-control" />
                         </div>
                       </div>
                     </div>
                   </div>
+
+
+
+                  <div class="bt-container">
+
+
+                  <button type="submit" class="btn btn-primary bt-form">Submit Now</button>
+
+                </div>
+
                 </form>
               </div>
             </div>
@@ -437,7 +497,7 @@
 					
 					
 					
-					<input type="text" readonly class="form-control ${
+					<input type="text" name="members[]"  class="form-control ${
             todo.done && " todo-done "
           } " aria-label="Text input with checkbox" value="${todo.text}">
 					
@@ -549,7 +609,7 @@
 					
 					
 					
-					<input type="text" readonly class="form-control ${
+					<input type="text" name="objectives[]"  class="form-control ${
             todo.done && " todo-done "
           } " aria-label="Text input with checkbox" value="${todo.text}">
 					
@@ -643,7 +703,7 @@
       
       
       
-      <input type="text" readonly class="form-control ${
+      <input type="text" name="journals[]"  class="form-control ${
         todo.done && " todo-done "
       } " aria-label="Text input with checkbox" value="${todo.text}">
       
@@ -711,5 +771,241 @@
         RenderAllTodos3();
       }
     </script>
+
+    <script>
+
+
+
+/*
+
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector('form'); // Adjust this if needed to select the correct form
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Stop the form from submitting immediately
+
+        // Remove old hidden inputs if any to avoid duplicates
+        document.querySelectorAll('input[name="jsMembers[]"]').forEach(input => input.remove());
+        document.querySelectorAll('input[name="jsObjectives[]"]').forEach(input => input.remove());
+
+        // Collect member values from visible inputs
+        const members = Array.from(document.querySelectorAll('input[name="members[]"]')).map(input => input.value);
+
+
+
+        alert(members); // Alert the members array to check what is captured
+
+        // Create hidden inputs for each member and append to the form
+        members.forEach(member => {
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'jsMembers[]'; // Use a different name to differentiate from visible inputs if needed
+            hiddenInput.value = member;
+            form.appendChild(hiddenInput);
+        });
+
+        const objectives = Array.from(document.querySelectorAll('input[name="objectives[]"]')).map(input => input.value);
+
+        alert(objectives); // Alert the members array to check what is captured
+
+        objectives.forEach(objective => {
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'jsObjectives[]'; // Use a different name to differentiate from visible inputs if needed
+            hiddenInput.value = objective;
+            form.appendChild(hiddenInput);
+        });
+
+
+
+
+        // const pstart = Array.from(document.querySelectorAll('input[name="pstart[]"]')).map(input => input.value);
+
+       // var startDate = document.querySelector('input[name="pstart[]"]').value;
+ 
+           // Access the input element by its `data-name` attribute
+           const startDate = Array.from(document.querySelectorAll('input[name="pstart[]"]')).map(input => input.value);
+
+           const endDate = Array.from(document.querySelectorAll('input[name="pend[]"]')).map(input => input.value);
+
+
+           const des = Array.from(document.querySelectorAll('input[name="pdes[]"]')).map(input => input.value);
+
+  //  var endDate = document.querySelector('input[data-name="pend[]"]').value;
+
+// Log the value to the console
+
+
+// this working
+alert(`end data values ${endDate}`); // Alert the members array to check what is captured
+
+// why this not working and get null vlaues
+alert(`Start data values ${startDate}`); // Alert the members array to check what is captured
+
+// why this also not working and get null vlaues
+
+alert(`des values ${des}`); // Alert the members array to check what is captured
+
+
+        // Now submit the form
+       // form.submit();
+    });
+});
+
+*/
+
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Stop the form from submitting immediately
+
+        // Simplified data collection using clearer selectors
+        const members = Array.from(document.querySelectorAll('input[name="members[]"]')).map(input => input.value);
+        const objectives = Array.from(document.querySelectorAll('input[name="objectives[]"]')).map(input => input.value);
+        const journals = Array.from(document.querySelectorAll('input[name="journals[]"]')).map(input => input.value);
+
+        const projectStartDates = Array.from(document.querySelectorAll('input[name="pstart[]"]')).map(input => input.value);
+        const projectEndDates = Array.from(document.querySelectorAll('input[name="pend[]"]')).map(input => input.value);
+        const projectDescriptions = Array.from(document.querySelectorAll('textarea[name="pdes[]"]')).map(textarea => textarea.value);
+
+        // Display captured data for verification
+        // alert(`Members: ${members.join(", ")}`);
+        // alert(`Objectives: ${objectives.join(", ")}`);
+         alert(`Journal Entries: ${journals.join(", ")}`);
+        // alert(`Project Start Dates: ${projectStartDates.join(", ")}`);
+        // alert(`Project End Dates: ${projectEndDates.join(", ")}`);
+        // alert(`Project Descriptions: ${projectDescriptions.join(", ")}`);
+
+
+        members.forEach(member => {
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'jsMembers[]'; // Use a different name to differentiate from visible inputs if needed
+            hiddenInput.value = member;
+            form.appendChild(hiddenInput);
+        });
+
+
+
+        objectives.forEach(objective => {
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'jsobjectives[]'; // Use a different name to differentiate from visible inputs if needed
+            hiddenInput.value = objective;
+            form.appendChild(hiddenInput);
+        });
+
+
+
+        projectStartDates.forEach(projectStartDate => {
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'jsprojectStartDate[]'; // Use a different name to differentiate from visible inputs if needed
+            hiddenInput.value = projectStartDate;
+            form.appendChild(hiddenInput);
+        });
+
+
+        projectEndDates.forEach(projectEndDate => {
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'jsprojectEndDate[]'; // Use a different name to differentiate from visible inputs if needed
+            hiddenInput.value = projectEndDate;
+            form.appendChild(hiddenInput);
+        });
+
+
+        projectDescriptions.forEach(projectDescription => {
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'jsprojectDescription[]'; // Use a different name to differentiate from visible inputs if needed
+            hiddenInput.value = projectDescription;
+            form.appendChild(hiddenInput);
+        });
+
+
+        journals.forEach(journal => {
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'jsjournal[]'; // Use a different name to differentiate from visible inputs if needed
+            hiddenInput.value = journal;
+            form.appendChild(hiddenInput);
+        });
+        // Optionally submit the form if all data is validated
+        form.submit();
+    });
+});
+
+
+
+          </script>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    var radioButton = document.getElementById('flexRadioDefault1');
+    var radioButton2 = document.getElementById('flexRadioDefault2');
+
+    radioButton.addEventListener('change', function() {
+        if (this.checked) {
+            //alert('Partial Grant selected');
+
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+checkboxes.forEach(function(checkbox) {
+    checkbox.checked = false;
+});
+
+
+
+var textInputs = document.querySelectorAll('input[name="grant-other"]');
+textInputs.forEach(function(input) {
+    input.value = "";
+});
+
+
+        }
+    });
+
+
+
+
+
+
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+checkboxes.forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+        radioButton.checked = false;
+        radioButton2.checked = true;
+    });
+});
+
+
+
+
+
+var grantOther = document.getElementById('grant-other');
+
+var otherCheckBox = document.getElementById('flexCheckDefault6');
+
+
+grantOther.addEventListener('input', function() {
+
+  otherCheckBox.checked = true;
+  radioButton2.checked = true;
+
+  if(this.value == "")
+  {
+    otherCheckBox.checked = false;
+
+  }
+
+});
+
+
+});
+
+</script>
+
   </body>
 </html>

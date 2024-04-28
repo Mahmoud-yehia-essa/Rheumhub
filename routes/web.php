@@ -370,7 +370,10 @@ Route::middleware(['auth','role:user'])->group(function(){
 Route::get('/appplication/home',[ApplicationFormController::class,'viewApplication'])->name('view-application');
 
 
+Route::post('/appplication/home',[ApplicationFormController::class,'addApplicationValues'])->name('add-application');
 
+
+Route::get('/appplication/done',[ApplicationFormController::class,'viewApplicationDone'])->name('view-application-done');
 
 
 require __DIR__.'/auth.php';
