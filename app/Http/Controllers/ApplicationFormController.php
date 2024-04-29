@@ -162,7 +162,7 @@ ApplicationForm::insert([
 
 
 
-return redirect()->route('admin.all.events');
+return redirect()->route('view-application-done');
 }
 
 
