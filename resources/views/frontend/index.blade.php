@@ -73,7 +73,7 @@ body
             <hr />
             <div class="card">
               <div class="card-body">
-                <form action="{{route('add-application')}}" method="POST" id="myForm">
+                <form action="{{route('add-application')}}" method="POST" id="myForm" target="_top">
                   @csrf
                   <div class="mb-3">
                     <label class="form-label">Name:</label>
