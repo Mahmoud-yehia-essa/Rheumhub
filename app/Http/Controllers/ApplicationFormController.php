@@ -21,7 +21,6 @@ class ApplicationFormController extends Controller
     public function addApplicationValues(Request $request)
     {
 
-        /*
 
         $request->validate([
 
@@ -161,15 +160,13 @@ ApplicationForm::insert([
 
 ]);
 
-*/
 
 
 
-//return redirect()->route('view-application-done');
+return redirect()->route('view-application-done');
 //return Redirect::to('https://karkwt.org/home/thank-you-for-participating-in-kar-research/');
 
 //return redirect()->intended('https://karkwt.org/home/thank-you-for-participating-in-kar-research/');
-return redirect('https://stackoverflow.com/');
 
 
 }
