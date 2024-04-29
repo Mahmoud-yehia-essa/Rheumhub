@@ -68,20 +68,7 @@ body
       <div class="page-content">
         <div class="row">
           <div class="col-xl-9">
-            @if ($errors->any())
-        
-
-            @foreach ($errors->all() as $item)
-           
-
-           <div class="alert alert-danger" role="alert">
-            {{$item}}
-          </div>
-
-            @endforeach
-        
-            
-        @endif
+          
             <h6 class="mb-0 text-uppercase">APPLICATION INFORMATION</h6>
             <hr />
             <div class="card">
@@ -460,6 +447,21 @@ body
                 </form>
               </div>
             </div>
+
+            @if ($errors->any())
+        
+
+            @foreach ($errors->all() as $item)
+           
+
+           <div class="alert alert-danger" role="alert">
+            {{$item}}
+          </div>
+
+            @endforeach
+        
+            
+        @endif
           </div>
         </div>
         <!--end row-->
@@ -875,7 +877,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Display captured data for verification
         // alert(`Members: ${members.join(", ")}`);
         // alert(`Objectives: ${objectives.join(", ")}`);
-         alert(`Journal Entries: ${journals.join(", ")}`);
+        // alert(`Journal Entries: ${journals.join(", ")}`);
         // alert(`Project Start Dates: ${projectStartDates.join(", ")}`);
         // alert(`Project End Dates: ${projectEndDates.join(", ")}`);
         // alert(`Project Descriptions: ${projectDescriptions.join(", ")}`);
