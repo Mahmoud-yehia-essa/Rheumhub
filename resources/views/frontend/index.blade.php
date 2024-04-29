@@ -69,6 +69,23 @@ body
         <div class="row">
           <div class="col-xl-9">
           
+
+
+            @if ($errors->any())
+        
+
+            @foreach ($errors->all() as $item)
+           
+
+           <div class="alert alert-danger" role="alert">
+            {{$item}}
+          </div>
+
+            @endforeach
+        
+            
+        @endif
+
             <h6 class="mb-0 text-uppercase">APPLICATION INFORMATION</h6>
             <hr />
             <div class="card">
@@ -448,20 +465,6 @@ body
               </div>
             </div>
 
-            @if ($errors->any())
-        
-
-            @foreach ($errors->all() as $item)
-           
-
-           <div class="alert alert-danger" role="alert">
-            {{$item}}
-          </div>
-
-            @endforeach
-        
-            
-        @endif
           </div>
         </div>
         <!--end row-->
