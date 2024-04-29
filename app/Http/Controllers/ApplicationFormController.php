@@ -22,7 +22,7 @@ class ApplicationFormController extends Controller
     {
 
 
-        /*
+       
         $request->validate([
 
             'name' => 'required',
@@ -163,7 +163,7 @@ ApplicationForm::insert([
 
 
 
-*/
+
 //return redirect()->route('view-application-done');
 return Redirect::to('https://karkwt.org/home/thank-you-for-participating-in-kar-research/');
 
