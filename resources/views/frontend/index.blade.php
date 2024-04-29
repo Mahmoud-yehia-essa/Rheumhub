@@ -51,10 +51,15 @@
 }
 
 
-
+body
+  {
+      
+      background:none transparent;
+      margin:0;
+  }
     </style>
 
-    
+
 
 
   </head>
