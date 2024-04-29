@@ -35,10 +35,10 @@
     
 
     <!-- Theme Style CSS -->
-    <link rel="stylesheet" href="{{asset('adminbackend/assets/css/dark-theme.css')}}" />
+    {{-- <link rel="stylesheet" href="{{asset('adminbackend/assets/css/dark-theme.css')}}" />
     <link rel="stylesheet" href="{{asset('adminbackend/assets/css/semi-dark.css')}}" />
     <link rel="stylesheet" href="{{asset('adminbackend/assets/css/header-colors.css')}}" />
-
+ --}}
 
 
     <style>
