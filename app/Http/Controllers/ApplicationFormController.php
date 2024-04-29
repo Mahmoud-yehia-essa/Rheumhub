@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\ApplicationForm;
+use Illuminate\Support\Facades\Redirect;
 
 class ApplicationFormController extends Controller
 {
@@ -162,7 +163,9 @@ ApplicationForm::insert([
 
 
 
-return redirect()->route('view-application-done');
+//return redirect()->route('view-application-done');
+return Redirect::to('https://karkwt.org/home/thank-you-for-participating-in-kar-research/');
+
 }
 
 
