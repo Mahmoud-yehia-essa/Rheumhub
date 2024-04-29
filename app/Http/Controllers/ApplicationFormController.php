@@ -164,8 +164,8 @@ ApplicationForm::insert([
 
 
 */
-return redirect()->route('view-application-done');
-//return Redirect::to('https://karkwt.org/home/thank-you-for-participating-in-kar-research/');
+//return redirect()->route('view-application-done');
+return Redirect::to('https://karkwt.org/home/thank-you-for-participating-in-kar-research/');
 
 //return redirect()->intended('https://karkwt.org/home/thank-you-for-participating-in-kar-research/');
 
