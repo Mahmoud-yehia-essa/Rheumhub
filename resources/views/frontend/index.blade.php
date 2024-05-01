@@ -57,6 +57,35 @@ body
       background:none transparent;
       margin:0;
   }
+
+ 
+  .header-main
+  {
+ 
+    align-items: center;
+    padding: 1rem;
+    /* background: #818a91 */
+
+    
+  }
+
+
+  .title-kar
+  {
+    
+    text-align: center;
+    /* background: green */
+
+  } 
+  /* 
+ 
+  .image
+  {
+    display: inline-block;
+
+  } */
+
+  /* */
     </style>
 
 
@@ -64,7 +93,49 @@ body
 
   </head>
   <body>
+
+   
+
+
+    <div class="container-fluid header-main">
+
+
+      <a href="https://karkwt.org/home/">
+      <img class="image" src="https://karkwt.org/home/wp-content/uploads/2022/05/logois.png" width="90" height="90" class="d-inline-block align-top" alt="">
+      </a>
+
+      <div  class="title-kar display-6">
+        KAR RESEARCH
+      </div>
+
+
+
+    </div>
+
+
+    {{-- <nav class="navbar navbar-expand navbar-light bg-light m-2 p-2">
+      <a class="navbar-brand" href="https://karkwt.org/home/">
+        <img src="https://karkwt.org/home/wp-content/uploads/2022/05/logois.png" width="90" height="90" class="d-inline-block align-top" alt="">
+        
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+          </li>
+         
+        </ul>
+      </div>
+    </nav> --}}
     <div class="page-wrapper mt-0">
+
+
+      
+
+
+
       <div class="page-content">
 
 
