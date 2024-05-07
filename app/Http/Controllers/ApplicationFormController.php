@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\JobPlace;
 use Illuminate\Http\Request;
 use App\Models\ApplicationForm;
 use Illuminate\Support\Facades\Redirect;
@@ -14,7 +15,12 @@ class ApplicationFormController extends Controller
 
     public function viewApplication()
     {
-        return view('frontend/index');
+
+
+        $jobPlace = JobPlace::latest()->orderBy('id','DESC')->get();
+        $jobPlace2 = JobPlace::latest()->orderBy('id','DESC')->get();
+
+        return view('frontend/index',compact('jobPlace','jobPlace2'));
     }
 
 
@@ -22,6 +28,7 @@ class ApplicationFormController extends Controller
     {
 
 
+        /*
        
         $request->validate([
 
@@ -161,7 +168,7 @@ ApplicationForm::insert([
 
 ]);
 
-
+*/
 
 
 //return redirect()->route('view-application-done');

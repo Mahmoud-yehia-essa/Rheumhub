@@ -22,11 +22,6 @@
     <!-- Bootstrap CSS -->
     <link href="{{asset('adminbackend/assets/css/bootstrap.min.css')}}" rel="stylesheet" />
     <link href="{{asset('adminbackend/assets/css/bootstrap-extended.css')}}" rel="stylesheet" />
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet" />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
       rel="stylesheet"
@@ -177,9 +172,6 @@ body
           <button class="accordion-button  {{ old('hidden') == 'done' ? 'collapsed' : '' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
             Mission & Agenda
 
-
-
-           
          
           </button>        </h2>                <div id="collapseOne" class="accordion-collapse collapse {{ old('hidden') == 'done' ? 'hidden' : 'show' }}" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
 
@@ -876,29 +868,7 @@ body
                     <div id="repeater">
                       <!-- Repeater Heading -->
         
-
                       <div class="card">
-                        <div class="card-body">
-                          <div class="mb-4">
-                            <label for="multiple-select-field" class="form-label">Project organization</label>
-                            <select class="form-select select2-hidden-accessible" id="multiple-select-field" data-placeholder="Choose" multiple="" data-select2-id="select2-data-multiple-select-field" tabindex="-1" aria-hidden="true">
-
-
-                              @foreach ($jobPlace as $jobPlace)
-                              <option data-select2-id="select2-data-193-{{$jobPlace->id}}">{{$jobPlace->name}}</option>
-  
-                              @endforeach
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-
-
-
-                     
-
-
-                      {{-- <div class="card">
                         <div class="card-body">
                           <div
                             class="d-flex align-items-center justify-content-between"
@@ -953,114 +923,18 @@ body
                               <button class="btn btn-danger remove-btn px-4">
                                 Remove
                               </button>
-                              
-                            </div>
-                           
-
-                           
-                          </div>
-                         
-                        </div>
-                      </div>
-                    </div> --}}
-
-
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="mb-4">
-                          <div class="row gy-1">
-                            <label class="form-label">Time line:</label>
-        
-                            <div class="col-md-9">
-      
-                      
-                              <input type="text" 
-                              id="todo-input4"
-      
-                              class="form-control date-range flatpickr-input" value="">
-      
-          
-                            </div>
-                            <div class="col-md-3 text-end d-grid">
-                              <button
-                                type="button"
-                                onclick="CreateTodo4();"
-                                class="btn btn-primary"
-                              >
-                                Add time line
-                              </button>
                             </div>
                           </div>
-        
-                          <div class="form-row mt-3">
-                            <div class="col-12">
-                              <div id="todo-container4"></div>
-                            </div>
-                          </div>
-
-                          <div class="mb-3">
-                            <label for="inputEmail4" class="form-label"
-                              >Description</label
-                            >
-                            <textarea class="form-control" rows="5" data-skip-name="true" name="pdes"></textarea>
-                          </div>
-                        </div>
                         </div>
                       </div>
                     </div>
-
-                   
-                    
-                    
-                    
-
-
         
                     <h6 class="mb-0 text-uppercase"></h6>
                     <hr />
                     <div class="card">
                       <div class="card-body">
                         <div class="row gy-1 mb-3">
-
-                          <label for="multiple-select-field" class="form-label">Targeted Journal:</label>
-                          <div class="mb-4">
-
-                            <select class="form-select" id="multiple-select-custom-field" data-placeholder="Choose" multiple>
-                              <option value="Annals of the Rheumatic Diseases" data-select2-id="select2-data-193-uniqeid-1">Annals of the Rheumatic Diseases</option>
-    <option value="Lancet Rheumatology" data-select2-id="select2-data-193-uniqeid-2">Lancet Rheumatology</option>
-    <option value="RMD Open" data-select2-id="select2-data-193-uniqeid-3">RMD Open</option>
-    <option value="Arthritis Research and Therapy" data-select2-id="select2-data-193-uniqeid-4">Arthritis Research and Therapy</option>
-    <option value="Biologics: Targets and Therapy" data-select2-id="select2-data-193-uniqeid-5">Biologics: Targets and Therapy</option>
-    <option value="Therapeutic Advances in Musculoskeletal Disease" data-select2-id="select2-data-193-uniqeid-6">Therapeutic Advances in Musculoskeletal Disease</option>
-    <option value="Lupus Science and Medicine" data-select2-id="select2-data-193-uniqeid-7">Lupus Science and Medicine</option>
-    <option value="Rheumatology Advances in Practice" data-select2-id="select2-data-193-uniqeid-8">Rheumatology Advances in Practice</option>
-    <option value="Pediatric Rheumatology" data-select2-id="select2-data-193-uniqeid-9">Pediatric Rheumatology</option>
-    <option value="BMC Musculoskeletal Disorders" data-select2-id="select2-data-193-uniqeid-10">BMC Musculoskeletal Disorders</option>
-    <option value="Advances in Rheumatology" data-select2-id="select2-data-193-uniqeid-11">Advances in Rheumatology</option>
-    <option value="Open Access Rheumatology: Research and Reviews" data-select2-id="select2-data-193-uniqeid-12">Open Access Rheumatology: Research and Reviews</option>
-    <option value="Clinical Medicine Insights: Arthritis and Musculoskeletal Disorders" data-select2-id="select2-data-193-uniqeid-13">Clinical Medicine Insights: Arthritis and Musculoskeletal Disorders</option>
-    <option value="International Journal of Rheumatology" data-select2-id="select2-data-193-uniqeid-14">International Journal of Rheumatology</option>
-    <option value="Reumatismo" data-select2-id="select2-data-193-uniqeid-15">Reumatismo</option>
-    <option value="Archives of Rheumatology" data-select2-id="select2-data-193-uniqeid-16">Archives of Rheumatology</option>
-    <option value="Acta Reumatologica Portuguesa" data-select2-id="select2-data-193-uniqeid-17">Acta Reumatologica Portuguesa</option>
-    <option value="Egyptian Rheumatologist" data-select2-id="select2-data-193-uniqeid-18">Egyptian Rheumatologist</option>
-    <option value="Indian Journal of Rheumatology" data-select2-id="select2-data-193-uniqeid-19">Indian Journal of Rheumatology</option>
-    <option value="Rheumatology and Therapy" data-select2-id="select2-data-193-uniqeid-20">Rheumatology and Therapy</option>
-    <option value="ACR Open Rheumatology" data-select2-id="select2-data-193-uniqeid-21">ACR Open Rheumatology</option>
-    <option value="BMC Rheumatology" data-select2-id="select2-data-193-uniqeid-22">BMC Rheumatology</option>
-    <option value="Journal of Rheumatic Disease" data-select2-id="select2-data-193-uniqeid-23">Journal of Rheumatic Disease</option>
-    <option value="Mediterranean Journal of Rheumatology" data-select2-id="select2-data-193-uniqeid-24">Mediterranean Journal of Rheumatology</option>
-    <option value="Reumatologia" data-select2-id="select2-data-193-uniqeid-25">Reumatologia</option>
-    <option value="Open Rheumatology Journal" data-select2-id="select2-data-193-uniqeid-26">Open Rheumatology Journal</option>
-    <option value="Revista Colombiana de Reumatologia" data-select2-id="select2-data-193-uniqeid-27">Revista Colombiana de Reumatologia</option>
-    <option value="Sovremennaya Revmatologiya" data-select2-id="select2-data-193-uniqeid-28">Sovremennaya Revmatologiya</option>
-    <option value="Romanian Journal of Rheumatology" data-select2-id="select2-data-193-uniqeid-29">Romanian Journal of Rheumatology</option>
-                            </select>
-                          </div>
-
-
-
-                            <label class="form-label">Other Journal:</label>
+                            <label class="form-label">Targeted Journal:</label>
         
                             <div class="col-md-9">
                               <input
@@ -1081,15 +955,6 @@ body
                               </button>
                             </div>
                           </div>
-
-
-                         
-
-
-
-        
-
-
         
                           <div class="form-row mt-3">
                             <div class="col-12">
@@ -1275,11 +1140,6 @@ body
     <script src="{{ asset('adminbackend/assets/plugins/simplebar/js/simplebar.min.js')}}"></script>
     <script src="{{ asset('adminbackend/assets/plugins/metismenu/js/metisMenu.min.js')}}"></script>
     <script src="{{ asset('adminbackend/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-    <script src="{{ asset('adminbackend/assets/plugins/select2/js/select2-custom.js')}}"></script>
-
     <!--app JS-->
     <script src="{{ asset('adminbackend/assets/js/app.js')}}"></script>
     <script>
@@ -1584,106 +1444,6 @@ body
       }
     </script>
 
-
-
-
-
-<script>
-  var todos4 = [];
-  var currentTodo4 = {
-    text: "",
-    done: false,
-    id: 0,
-  };
-  document.getElementById("todo-input4").oninput = function (e) {
-    currentTodo4.text = e.target.value;
-  };
-  /*
-//jQuery Version
-$('#todo-input').on('input',function(e){
-currentTodo.text = e.target.value;
- });
-*/
-  function DrawTodo4(todo) {
-    document.getElementById("todo-input4").value = "";
-
-    var newTodoHTML4 = `
-<div class="pb-3 todo-item" todo-id="${todo.id}">
-<div class="input-group">
-  
-  
-  
-  <input type="text" name="journals2[]"  class="form-control ${
-    todo.done && " todo-done "
-  } " aria-label="Text input with checkbox" value="${todo.text}">
-  
-    <button todo-id="${
-      todo.id
-    }" class="btn btn-outline-secondary bg-danger text-white" type="button" onclick="DeleteTodo4(this);" id="button-addon2 ">X</button>
-  
-</div>
-</div>
-`;
-    var dummy = document.createElement("DIV");
-    dummy.innerHTML = newTodoHTML4;
-    document
-      .getElementById("todo-container4")
-      .appendChild(dummy.children[0]);
-    /*
-//jQuery version
- var newTodo = $.parseHTML(newTodoHTML);
- $("#todo-container").append(newTodo);
-*/
-  }
-
-  function RenderAllTodos4() {
-    var container4 = document.getElementById("todo-container4");
-    while (container4.firstChild) {
-      container4.removeChild(container4.firstChild);
-    }
-    /*
-//jQuery version
-  $("todo-container").empty();
-*/
-    for (var i = 0; i < todos4.length; i++) {
-      DrawTodo4(todos4[i]);
-    }
-  }
-  RenderAllTodos4();
-
-  function DeleteTodo4(button) {
-    var deleteID = parseInt(button.getAttribute("todo-id"));
-    /*
-//jQuery version
-  var deleteID = parseInt($(button).attr("todo-id"));
-*/
-    for (let i = 0; i < todos4.length; i++) {
-      if (todos4[i].id === deleteID) {
-        todos4.splice(i, 1);
-        RenderAllTodos4();
-        break;
-      }
-    }
-  }
-
-  function TodoChecked4(id) {
-    todos4[id].done = !todos4[id].done;
-    RenderAllTodos4();
-  }
-
-  function CreateTodo4() {
-    newtodo = {
-      text: currentTodo4.text,
-      done: false,
-      id: todos4.length,
-    };
-    todos4.push(newtodo);
-    RenderAllTodos4();
-  }
-</script>
-
-
-
     <script>
 
 
@@ -1919,45 +1679,5 @@ grantOther.addEventListener('input', function() {
 
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-<script>
-
-
-$(".datepicker").flatpickr();
-
-$(".time-picker").flatpickr({
-    enableTime: true,
-    noCalendar: true,
-    dateFormat: "Y-m-d H:i",
-  });
-
-$(".date-time").flatpickr({
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-});
-
-$(".date-format").flatpickr({
-  altInput: true,
-  altFormat: "F j, Y",
-  dateFormat: "Y-m-d",
-});
-
-$(".date-range").flatpickr({
-  mode: "range",
-  altInput: true,
-  altFormat: "F j, Y",
-  dateFormat: "Y-m-d",
-});
-
-$(".date-inline").flatpickr({
-  inline: true,
-  altInput: true,
-  altFormat: "F j, Y",
-  dateFormat: "Y-m-d",
-});
-
-
-  </script>
   </body>
 </html>
