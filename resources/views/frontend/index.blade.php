@@ -881,7 +881,7 @@ body
                         <div class="card-body">
                           <div class="mb-4">
                             <label for="multiple-select-field" class="form-label">Project organization</label>
-                            <select class="form-select select2-hidden-accessible" id="multiple-select-field" data-placeholder="Choose" multiple="" data-select2-id="select2-data-multiple-select-field" tabindex="-1" aria-hidden="true">
+                            <select name="clinic[]" class="form-select select2-hidden-accessible" id="multiple-select-field" data-placeholder="Choose" multiple="" data-select2-id="select2-data-multiple-select-field" tabindex="-1" aria-hidden="true">
 
 
                               @foreach ($jobPlace as $jobPlace)
@@ -1025,7 +1025,7 @@ body
                           <label for="multiple-select-field" class="form-label">Targeted Journal:</label>
                           <div class="mb-4">
 
-                            <select class="form-select" id="multiple-select-custom-field" data-placeholder="Choose" multiple>
+                            <select class="form-select" id="multiple-select-custom-field" data-placeholder="Choose" multiple name="journal[]">
                               <option value="Annals of the Rheumatic Diseases" data-select2-id="select2-data-193-uniqeid-1">Annals of the Rheumatic Diseases</option>
     <option value="Lancet Rheumatology" data-select2-id="select2-data-193-uniqeid-2">Lancet Rheumatology</option>
     <option value="RMD Open" data-select2-id="select2-data-193-uniqeid-3">RMD Open</option>
@@ -1291,6 +1291,8 @@ body
         done: false,
         id: 0,
       };
+
+
       document.getElementById("todo-input").oninput = function (e) {
         currentTodo.text = e.target.value;
       };
@@ -1300,6 +1302,7 @@ body
 				currentTodo.text = e.target.value;
 			   });
 			*/
+
       function DrawTodo(todo) {
         document.getElementById("todo-input").value = "";
 
@@ -1368,6 +1371,15 @@ body
       }
 
       function CreateTodo() {
+
+        if(currentTodo.text == "")
+        {
+         // alert("Please add member");
+          alert("Please add a member.");
+
+        }
+        else
+        {
         newtodo = {
           text: currentTodo.text,
           done: false,
@@ -1375,6 +1387,10 @@ body
         };
         todos.push(newtodo);
         RenderAllTodos();
+      }
+
+      currentTodo.text = "";
+
       }
 
       var text_max = 500;
@@ -1480,6 +1496,16 @@ body
       }
 
       function CreateTodo2() {
+
+
+        if(currentTodo2.text == "")
+        {
+         // alert("Please add member");
+          alert("Please add a objective.");
+
+        }
+        else
+        {
         newtodo = {
           text: currentTodo2.text,
           done: false,
@@ -1487,6 +1513,8 @@ body
         };
         todos2.push(newtodo);
         RenderAllTodos2();
+      }
+      currentTodo2.text = "";
       }
     </script>
 
@@ -1574,6 +1602,14 @@ body
       }
 
       function CreateTodo3() {
+
+        if(currentTodo3.text == "")
+        {
+          alert("Please add a journal.");
+
+        }
+        else
+        {
         newtodo = {
           text: currentTodo3.text,
           done: false,
@@ -1581,6 +1617,7 @@ body
         };
         todos3.push(newtodo);
         RenderAllTodos3();
+      }
       }
     </script>
 
@@ -1606,6 +1643,9 @@ currentTodo.text = e.target.value;
 */
   function DrawTodo4(todo) {
     document.getElementById("todo-input4").value = "";
+   // document.querySelector('#todo-input4').value = '';
+   // document.querySelector('#todo-input4.date-range').value = '';
+
 
     var newTodoHTML4 = `
 <div class="pb-3 todo-item" todo-id="${todo.id}">
@@ -1613,7 +1653,7 @@ currentTodo.text = e.target.value;
   
   
   
-  <input type="text" name="journals2[]"  class="form-control ${
+  <input type="text" name="timeline[]"  class="form-control ${
     todo.done && " todo-done "
   } " aria-label="Text input with checkbox" value="${todo.text}">
   
@@ -1672,6 +1712,14 @@ currentTodo.text = e.target.value;
   }
 
   function CreateTodo4() {
+
+    if(currentTodo4.text == "")
+        {
+      alert("Please add a Time line.");
+
+    }
+    else
+    {
     newtodo = {
       text: currentTodo4.text,
       done: false,
@@ -1679,6 +1727,11 @@ currentTodo.text = e.target.value;
     };
     todos4.push(newtodo);
     RenderAllTodos4();
+  }
+ // currentTodo4.text = "";
+  //document.getElementById("todo-input4").value = "";
+
+
   }
 </script>
 
@@ -1775,6 +1828,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const objectives = Array.from(document.querySelectorAll('input[name="objectives[]"]')).map(input => input.value);
         const journals = Array.from(document.querySelectorAll('input[name="journals[]"]')).map(input => input.value);
 
+
+        const timeline = Array.from(document.querySelectorAll('input[name="timeline[]"]')).map(input => input.value);
+
+
+
+
         const projectStartDates = Array.from(document.querySelectorAll('input[name="pstart[]"]')).map(input => input.value);
         const projectEndDates = Array.from(document.querySelectorAll('input[name="pend[]"]')).map(input => input.value);
         const projectDescriptions = Array.from(document.querySelectorAll('textarea[name="pdes[]"]')).map(textarea => textarea.value);
@@ -1806,7 +1865,16 @@ document.addEventListener("DOMContentLoaded", function() {
             form.appendChild(hiddenInput);
         });
 
+        timeline.forEach(timeline => {
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'jstimeline[]'; // Use a different name to differentiate from visible inputs if needed
+            hiddenInput.value = timeline;
+            form.appendChild(hiddenInput);
+        });
 
+
+        
 
         projectStartDates.forEach(projectStartDate => {
             const hiddenInput = document.createElement('input');

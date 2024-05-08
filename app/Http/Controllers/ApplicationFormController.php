@@ -13,6 +13,18 @@ class ApplicationFormController extends Controller
     //
 
 
+    public function AllResearch(Request $request)
+    {
+
+   
+        $applicationForm = ApplicationForm::latest()->get();
+
+
+        
+        return view("admin.Research.all_Research",compact('applicationForm'));
+
+    }
+
     public function viewApplication()
     {
 
@@ -26,6 +38,10 @@ class ApplicationFormController extends Controller
 
     public function addApplicationValues(Request $request)
     {
+      
+
+      
+      
 
 
         /*
@@ -169,6 +185,135 @@ ApplicationForm::insert([
 ]);
 
 */
+
+
+/// New
+$request->validate([
+
+    'name' => 'required',
+    'position' =>  'required',
+    'workAddress' =>  'required',
+    'email' =>  'required|email',
+    'number' =>  'required',
+    'title' =>  'required',
+    'leader' =>  'required',
+
+    'clinic' => 'required',
+    'journal'=> 'required',
+
+    'des' =>  'required',
+
+    'pdes' => 'required',
+
+    'grant' =>  'required',
+
+            'jsMembers' => 'required|array|min:1',
+            'jsobjectives' => 'required|array|min:1', 
+            'jstimeline' => 'required|array|min:1', 
+
+            
+
+],[
+
+    'jsMembers.required' => 'The member field is required..', // Ensuring no empty array elements
+    'jsobjectives.required' => 'The objectives field is required..', // Ensuring no empty array elements
+    'jstimeline.required' => 'The timeline field is required..', 
+    'des.required' => 'The description field is required..', // Ensuring no empty array elements
+    // Ensuring no empty array elements
+    'pdes.required' => 'The timeline description field is required..', // Ensuring no empty array elements
+
+
+
+]);
+
+
+$members = $request->jsMembers;
+$membersString = '' . implode(', ', $members) . '';
+
+
+
+$objectives = $request->jsobjectives;
+$objectivesString = '' . implode(', ', $objectives) . '';
+
+
+
+
+
+
+$clinic = $request->clinic;
+$clinicString = '' . implode(', ', $clinic) . '';
+
+
+$timeline = $request->jstimeline;
+$timelineString = '' . implode(', ', $timeline) . '';
+
+
+
+$journal = $request->journal;
+$journalRequiredString = '' . implode(', ', $journal) . '';
+
+
+
+
+
+$journalString = "";
+$journals = $request->jsjournal;
+
+if($journals !== null)
+
+{
+$journalString = '' . implode(', ', $journals) . '';
+}
+
+
+$grantCheckedString = "";
+
+
+if(!empty($request->grant_checked))
+{
+    $grant_checked = $request->grant_checked;
+    $grantCheckedString = '"' . implode('", "', $grant_checked) . '"';
+     
+}
+
+
+$grantOther = "";
+if($request->grantOther != null)
+{
+    $grantOther = $request->grantOther;
+}
+
+
+
+
+ApplicationForm::insert([
+
+
+    'name' => $request->name,
+    'position' => $request->position,
+    'Work_Address' => $request->workAddress,
+    'email' => $request->email,
+    'number' => $request->number,
+    'title' => $request->title,
+    'leader' => $request->leader,
+    'members' => $membersString,
+    'objectives' => $objectivesString,
+    'description' => $request->des,
+    'project_organization' =>  $clinicString,
+    'timeline' => $timelineString,
+    'pdescription' => $request->pdes,
+
+    'journal' => $journalRequiredString,
+    'other_journal'=>$journalString,
+    'grant' => $request->grant,
+    'grantChecked' => $grantCheckedString,
+    'grantOther' =>  $grantOther,
+    'created_at' => Carbon::now(),
+
+
+
+
+]);
 
 
 //return redirect()->route('view-application-done');

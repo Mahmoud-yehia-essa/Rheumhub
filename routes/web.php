@@ -245,6 +245,11 @@ Route::post('/admin/update/News/{id}', [NewsController::class, 'UpdateNewsStore'
 
 
 
+///Resarch 
+Route::get('/admin/all/Research', [ApplicationFormController::class, 'AllResearch'])->name('admin.all.Research');
+
+
+
 
 Route::get('/admin/all/Video', [VideoController::class, 'AllVideo'])->name('admin.all.Video');
 Route::get('/admin/add/Video', [VideoController::class, 'AddVideo'])->name('admin.add.Video');

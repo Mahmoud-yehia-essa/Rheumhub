@@ -44,6 +44,23 @@
 
         <li>
             <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-spreadsheet"></i>
+                </div>
+                <div class="menu-title">KAR Research</div>
+            </a>
+            <ul>
+                <li> <a href="{{route('admin.all.Research')}}"><i class='bx bx-radio-circle'></i>All KAR Research</a>
+                </li>
+           
+                
+            </ul>
+        </li>
+
+
+
+
+        <li>
+            <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-user-check"></i>
                 </div>
                 <div class="menu-title">Mmbership</div>
@@ -285,6 +302,10 @@
         </li>
 
 
+
+
+
+ 
 
 
 
