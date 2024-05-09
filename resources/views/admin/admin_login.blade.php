@@ -45,11 +45,10 @@
 							<div class="card-body p-sm-5">
 								<div class="">
 									<div class="mb-3 text-center">
-										<img src="{{asset('adminbackend/assets/images/logo-icon.png')}}" width="60" alt="">
+										<img src="https://karkwt.org/home/wp-content/uploads/2022/05/logois.png" width="60" alt="">
 									</div>
 									<div class="text-center mb-4">
-										<h5 class="">Rheumhub</h5>
-										<p class="mb-0">Content Management System</p>
+										<h5 class="">KAR RESEARCH</h5>
 									</div>
 									<div class="form-body">
 

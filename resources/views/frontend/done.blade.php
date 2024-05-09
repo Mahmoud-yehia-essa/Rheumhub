@@ -62,7 +62,16 @@
       <div class="row">
         <div class="col-xl-9">
   <div class="alert alert-success" role="alert">
-    Thank you for participating in KAR Research 
+
+    Thank you for submitting your application.
+    <br>
+
+Your Registration Number is: R0000{{$getLastId}} 
+<br>
+
+KAR research committee will respond to you shortly.
+     
+    
   </div>
 </div>
 </div>

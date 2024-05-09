@@ -379,7 +379,7 @@ Route::get('/appplication/home',[ApplicationFormController::class,'viewApplicati
 Route::post('/appplication/home',[ApplicationFormController::class,'addApplicationValues'])->name('add-application');
 
 
-Route::get('/appplication/done',[ApplicationFormController::class,'viewApplicationDone'])->name('view-application-done');
+Route::get('/appplication/done/{$id}',[ApplicationFormController::class,'viewApplicationDone'])->name('view-application-done');
 
 
 require __DIR__.'/auth.php';

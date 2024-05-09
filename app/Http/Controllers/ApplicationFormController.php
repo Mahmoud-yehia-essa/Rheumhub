@@ -286,7 +286,7 @@ if($request->grantOther != null)
 
 
 
-ApplicationForm::insert([
+$getLastId = ApplicationForm::insertGetId([
 
 
     'name' => $request->name,
@@ -316,8 +316,10 @@ ApplicationForm::insert([
 ]);
 
 
-//return redirect()->route('view-application-done');
-return Redirect::to('https://karkwt.org/home/thank-you-for-participating-in-kar-research/');
+//return redirect()->route('view-application-done',$getLastId);
+return view('frontend/done',compact('getLastId'));
+
+//return Redirect::to('https://karkwt.org/home/thank-you-for-participating-in-kar-research/');
 
 //return redirect()->intended('https://karkwt.org/home/thank-you-for-participating-in-kar-research/');
 
@@ -325,10 +327,12 @@ return Redirect::to('https://karkwt.org/home/thank-you-for-participating-in-kar-
 }
 
 
-    public function viewApplicationDone()
+    public function viewApplicationDone($id)
     {
 
-        return view('frontend/done');
+        $getId = $id;
+
+        return view('frontend/done',compact('getId'));
     }
 
 
