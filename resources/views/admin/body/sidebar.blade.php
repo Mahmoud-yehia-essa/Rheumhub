@@ -13,33 +13,15 @@
     <ul class="metismenu" id="menu">
 
 
-
+{{-- 
         <li>
             <a href="{{route('admin.dashboard')}}">
                 <div class="parent-icon"><i class='bx bx-home-alt'></i>
                 </div>
                 <div class="menu-title">Dashboard</div>
             </a>
-        </li>
+        </li> --}}
 
-
-
-
-       
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-group"></i>
-                </div>
-                <div class="menu-title">USERS</div>
-            </a>
-            <ul>
-                <li> <a href="{{route('admin.all.users')}}"><i class='bx bx-radio-circle'></i>All Users</a>
-                </li>
-                <li> <a href="{{route('admin.add.user')}}"><i class='bx bx-radio-circle'></i>Add user</a>
-                </li>
-                
-            </ul>
-        </li>
 
 
         <li>
@@ -55,11 +37,29 @@
                 
             </ul>
         </li>
+       
+        {{-- <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-group"></i>
+                </div>
+                <div class="menu-title">USERS</div>
+            </a>
+            <ul>
+                <li> <a href="{{route('admin.all.users')}}"><i class='bx bx-radio-circle'></i>All Users</a>
+                </li>
+                <li> <a href="{{route('admin.add.user')}}"><i class='bx bx-radio-circle'></i>Add user</a>
+                </li>
+                
+            </ul>
+        </li> --}}
+
+
+     
 
 
 
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-user-check"></i>
                 </div>
@@ -72,10 +72,10 @@
                 </li>
                 
             </ul>
-        </li>
+        </li> --}}
 
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-briefcase"></i>
                 </div>
@@ -88,10 +88,10 @@
                 </li>
                 
             </ul>
-        </li>
+        </li> --}}
 
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-building-house"></i>
                 </div>
@@ -104,9 +104,9 @@
                 </li>
                 
             </ul>
-        </li>
+        </li> --}}
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-calendar"></i>
                 </div>
@@ -119,11 +119,11 @@
                 </li>
                 
             </ul>
-        </li>
+        </li> --}}
 
         
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-calendar-check"></i>
                 </div>
@@ -136,9 +136,9 @@
                 </li>
                 
             </ul>
-        </li>
+        </li> --}}
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-smile"></i>
                 </div>
@@ -151,13 +151,13 @@
                 </li>
                 
             </ul>
-        </li>
+        </li> --}}
 
 
 
 
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-dollar"></i>
                 </div>
@@ -180,10 +180,10 @@
 
                 
             </ul>
-        </li>
+        </li> --}}
 
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-notification"></i>
                 </div>
@@ -197,8 +197,7 @@
                
                 
 
-                {{-- <li> <a href="{{route('admin.add.notification.event')}}"><i class='bx bx-radio-circle'></i>Notification for Events</a>
-                </li> --}}
+                
 
 
                 <li> <a href="{{route('admin.add.notification.users')}}"><i class='bx bx-radio-circle'></i>Send Notification for users</a>
@@ -209,14 +208,14 @@
 
 
             </ul>
-        </li>
+        </li> --}}
 
 
 
 
         
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-book"></i>
                 </div>
@@ -229,11 +228,11 @@
                 </li>
                 
             </ul>
-        </li>
+        </li> --}}
 
 
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-book-reader"></i>
                 </div>
@@ -246,10 +245,10 @@
                 </li>
                 
             </ul>
-        </li>
+        </li> --}}
 
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-video"></i>
                 </div>
@@ -262,12 +261,12 @@
                 </li>
                 
             </ul>
-        </li>
+        </li> --}}
 
 
 
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-hotel"></i>
                 </div>
@@ -280,13 +279,13 @@
                 </li>
                 
             </ul>
-        </li>
+        </li> --}}
 
 
 
 
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-video"></i>
                 </div>
@@ -299,7 +298,7 @@
                 </li>
                 
             </ul>
-        </li>
+        </li> --}}
 
 
 
@@ -309,7 +308,7 @@
 
 
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-spreadsheet"></i>
                 </div>
@@ -322,13 +321,13 @@
                 </li>
                 
             </ul>
-        </li>
+        </li> --}}
 
 
 
 
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-check-square"></i>
                 </div>
@@ -341,11 +340,11 @@
                 </li>
                 
             </ul>
-        </li>
+        </li> --}}
 
 
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-heart"></i>
                 </div>
@@ -358,11 +357,11 @@
                 
               
             </ul>
-        </li>
+        </li> --}}
 
 
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-align-justify"></i>
                 </div>
@@ -384,7 +383,7 @@
                 <li> <a href="{{route('admin.add.Version')}}"><i class='bx bx-radio-circle'></i>App Version</a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
 
   

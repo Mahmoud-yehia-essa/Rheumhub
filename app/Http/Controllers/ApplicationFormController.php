@@ -330,4 +330,25 @@ return Redirect::to('https://karkwt.org/home/thank-you-for-participating-in-kar-
 
         return view('frontend/done');
     }
+
+
+    public function DeleteResearch($id)
+    {
+         $ApplicationForm = ApplicationForm::find($id);
+
+        
+        $ApplicationForm->delete();
+
+
+
+        $notification = array(
+            'message' => 'Research Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('admin.all.Research')->with($notification);
+
+
+    }
+
 }

@@ -78,15 +78,14 @@
 
                             <td>{{ Carbon\Carbon::parse($applicationForm->created_at)->diffForHumans() }}</td>
                            
-{{-- 
+
                             <td>
-                                <a href="{{route('admin.News.update',$News->id)}}" class="btn btn-info" title="Edit Data"> <i class="fa fa-pencil"></i> </a>
-                                <a href="{{route('admin.News.delete',$News->id)}}" class="btn btn-danger" id="delete" title="Delete Data" ><i class="fa fa-trash"></i></a>
+                                <a href="{{route('admin.Research.delete',$applicationForm->id)}}" class="btn btn-danger" id="delete" title="Delete Data" ><i class="fa fa-trash"></i></a>
 
 
                                   
                                
-                            </td>  --}}
+                            </td> 
 
                         </tr>
                         @endforeach

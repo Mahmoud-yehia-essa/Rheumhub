@@ -247,6 +247,7 @@ Route::post('/admin/update/News/{id}', [NewsController::class, 'UpdateNewsStore'
 
 ///Resarch 
 Route::get('/admin/all/Research', [ApplicationFormController::class, 'AllResearch'])->name('admin.all.Research');
+Route::get('/admin/delete/Research/{id}', [ApplicationFormController::class, 'DeleteResearch'])->name('admin.Research.delete');
 
 
 
