@@ -33,7 +33,7 @@ class AdminController extends Controller
 
         if(Auth::check())
         {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('view-application');
 
         }
         else
