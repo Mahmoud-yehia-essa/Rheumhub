@@ -7,6 +7,7 @@ use App\Models\JobPlace;
 use Illuminate\Http\Request;
 use App\Models\ApplicationForm;
 use Illuminate\Support\Facades\Redirect;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ApplicationFormController extends Controller
 {
@@ -25,6 +26,45 @@ class ApplicationFormController extends Controller
 
     }
 
+    public function summaryResearch(Request $request)
+    {
+
+   
+        $applicationForm = ApplicationForm::latest()->get();
+
+
+        
+        return view("admin.Research.summary_Research",compact('applicationForm'));
+
+    }
+
+
+    public function allResearchPdf($id)
+    {
+
+        $applicationForm = ApplicationForm::find($id);
+
+        
+        // $pdf = Pdf::loadView('admin.Research.pdf_all_Research', compact('applicationForm'))->setPaper('a4', 'landscape');
+        // return $pdf->download('essa.pdf');
+
+        $html = view('admin.Research.pdf_all_Research',compact('applicationForm'));
+
+        $pdf = PDF::loadHTML($html)->output();
+        
+        $headers = array(
+            "Content-type" => "application/pdf",
+        );
+        
+        // Create a stream response as a file download
+        return response()->streamDownload(
+            fn () => print($pdf), // add the content to the stream
+            "R0000".$applicationForm->id.".pdf", // the name of the file/stream
+            $headers
+        );
+    }
+    
+    
     public function viewApplication()
     {
 

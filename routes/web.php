@@ -249,6 +249,8 @@ Route::post('/admin/update/News/{id}', [NewsController::class, 'UpdateNewsStore'
 Route::get('/admin/all/Research', [ApplicationFormController::class, 'AllResearch'])->name('admin.all.Research');
 Route::get('/admin/delete/Research/{id}', [ApplicationFormController::class, 'DeleteResearch'])->name('admin.Research.delete');
 
+Route::get('/admin/summary/Research', [ApplicationFormController::class, 'summaryResearch'])->name('admin.summary.Research');
+Route::get('/admin/all/Research/pdf/{id}', [ApplicationFormController::class, 'allResearchPdf'])->name('admin.Research.pdf');
 
 
 

@@ -33,6 +33,11 @@
             <ul>
                 <li> <a href="{{route('admin.all.Research')}}"><i class='bx bx-radio-circle'></i>All KAR Research</a>
                 </li>
+
+                <li> <a href="{{route('admin.summary.Research')}}"><i class='bx bx-radio-circle'></i>Summary KAR Research</a>
+                </li>
+
+                
            
                 
             </ul>
